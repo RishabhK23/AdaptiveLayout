@@ -69,7 +69,7 @@ fun MainScreen(windowSizeClass: WindowSizeClass?) {
     Box(modifier = Modifier.fillMaxSize()) {
 
         Column(modifier = Modifier.fillMaxWidth()) {
-
+            //Can be replaced by AdaptiveTopAppBar
             TopAppBar(title = {
                 Text(text = "Adaptive Layout")
             }, colors = TopAppBarColors(
@@ -162,7 +162,13 @@ fun AdaptivePanel(modifier: Modifier, windowSizeClass: WindowSizeClass?) {
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview() {
-    MainScreen(windowSizeClass = null)
+    Column {
+        AdaptiveTopBar()
+        Row{
+            LargeNavigation()
+            LargePanel(modifier = Modifier.weight(1f))
+        }
+    }
 }
 
 
